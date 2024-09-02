@@ -9,8 +9,8 @@ interface Note {
     body: string;
     createdAt: string;
     updatedAt: string;
-    __v: number;
 }
+
 
 export default function Notes() {
     const [notes, setNotes] = useState<Note[]>([]);
@@ -27,6 +27,16 @@ export default function Notes() {
 
         fetchNotes();
     }, []);
+
+    const handleDelete = async (id: string) => {
+        try {
+          await axios.delete(`http://localhost:3000/notes/delete/${id}`);
+          // Actualiza el estado para eliminar la nota de la vista
+          setNotes(notes.filter(note => note._id !== id));
+        } catch (error) {
+          console.error("Error deleting note:", error);
+        }
+      };
 
     return (
         <section className="w-full max-w-4xl justify-center overflow-x-auto my-10 mx-auto">
@@ -59,7 +69,7 @@ export default function Notes() {
                                     Edit
                                 </Link>
 
-                                <p className="bg-red-700 py-1 px-6 rounded-xl text-white font-bold hover:bg-red-800 transition ease-in-out delay-30 cursor-pointer">
+                                <p onClick={() => handleDelete(note._id)} className="bg-red-700 py-1 px-6 rounded-xl text-white font-bold hover:bg-red-800 transition ease-in-out delay-30 cursor-pointer">
                                     Delete
                                 </p>
                             </td>
