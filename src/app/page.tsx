@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Notes from "@/components/Notes";
 
 export default function Home() {
   return (
@@ -7,8 +8,8 @@ export default function Home() {
         <Header />
       </header>
 
-      <main>
-
+      <main className="flex justify-center items-center">
+        <Notes />
       </main>
       
     </>
