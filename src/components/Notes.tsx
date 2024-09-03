@@ -45,7 +45,7 @@ export default function Notes() {
             <Link
                 className="bg-[#2a6675] text-white px-5 py-2 rounded-lg mb-4 hover:bg-[#1f4c57] transition ease-in-out delay-30"
                 href="/create"
-            >
+                >
                 Add note <FontAwesomeIcon icon={faBook} />
             </Link>
 
@@ -62,10 +62,12 @@ export default function Notes() {
                     {notes.map((note) => (
                         <tr key={note._id} className="border-solid border-2 border-[#2a6675]">
                             <td>{note.title}</td>
+                            
                             <td>{note.body}</td>
+
                             <td className="flex justify-evenly items-center">
                                 <Link
-                                    href={`/edit/${note._id}`}
+                                    href={`/update/${note._id}`}
                                     className="bg-amber-300 py-1 px-6 rounded-xl font-bold hover:bg-amber-400 transition ease-in-out delay-30"
                                 >
                                     Edit
