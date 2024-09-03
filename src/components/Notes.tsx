@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 interface Note {
     _id: string;
@@ -42,9 +44,9 @@ export default function Notes() {
         <section className="w-full max-w-4xl justify-center overflow-x-auto my-10 mx-auto">
             <Link
                 className="bg-[#2a6675] text-white px-5 py-2 rounded-lg mb-4 hover:bg-[#1f4c57] transition ease-in-out delay-30"
-                href=""
+                href="/create"
             >
-                Add note
+                Add note <FontAwesomeIcon icon={faBook} />
             </Link>
 
             <table className="my-6 shadow-md border-collapse border-solid border-2 border-[#2a6675] w-full">
