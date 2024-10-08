@@ -17,7 +17,7 @@ export default function CreateNote() {
     setSuccess(null);
 
     try {
-      const response = await axios.post("http://localhost:3000/notes/create", {
+      const response = await axios.post("https://backend-mynotes-297f.onrender.com/notes/create", {
         title,
         body,
       });

@@ -20,7 +20,7 @@ export default function Notes() {
     useEffect(() => {
         const fetchNotes = async () => {
             try {
-                const res = await axios.get<Note[]>("http://localhost:3000/notes/all");
+                const res = await axios.get<Note[]>("https://backend-mynotes-297f.onrender.com/notes/all");
                 setNotes(res.data);
             } catch (error) {
                 console.error("Error fetching notes:", error);
@@ -32,7 +32,7 @@ export default function Notes() {
 
     const handleDelete = async (id: string) => {
         try {
-          await axios.delete(`http://localhost:3000/notes/delete/${id}`);
+          await axios.delete(`https://backend-mynotes-297f.onrender.com/notes/delete/${id}`);
           // Actualiza el estado para eliminar la nota de la vista
           setNotes(notes.filter(note => note._id !== id));
         } catch (error) {

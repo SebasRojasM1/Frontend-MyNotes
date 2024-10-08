@@ -20,7 +20,7 @@ export default function UpdateNote() {
     const fetchNote = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:3000/notes/${id}`);
+        const response = await axios.get(`https://backend-mynotes-297f.onrender.com/notes/${id}`);
         const note = response.data;
         setTitle(note.title);
         setBody(note.body);
@@ -43,7 +43,7 @@ export default function UpdateNote() {
     setSuccess(null);
 
     try {
-      const response = await axios.put(`http://localhost:3000/notes/update/${id}`, {
+      const response = await axios.put(`https://backend-mynotes-297f.onrender.com/notes/update/${id}`, {
         title,
         body,
       });
